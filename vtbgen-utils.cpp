@@ -24,6 +24,7 @@ std::string getModuleName(char *module){
 	std::string filename;
 	filename = module;
 	verilogFile.open(filename.c_str());
+	
 	verilogFile.close();
 	return "dff";
 }

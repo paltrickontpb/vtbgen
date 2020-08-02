@@ -1,6 +1,4 @@
-#include<iostream>
-#include <string>
-#include "vtbgen-utils.h"
+#include "vtbgen.h"
 
 using namespace std;
 
