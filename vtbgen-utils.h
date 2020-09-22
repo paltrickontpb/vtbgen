@@ -4,8 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <bits/stdc++.h> 
 #include "vtbgen.h"
-#include "vtbgen-regex.h"
 
 int moduleCount(char *module);
 void callError(std::string err);

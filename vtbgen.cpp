@@ -4,7 +4,9 @@ using namespace std;
 
 int main(int argc, char** argv){
 	cout << endl;
+	cout << "========================================================" << endl;
 	cout << "=========== Open Verilog Testbench Generator ===========" << endl;
+	cout << "========================================================" << endl;
 	cout << endl;
 	if(argc != 2){
 		callError("Please Input the File Containing the Top Module (Error Code : 02)");
@@ -30,6 +32,6 @@ int main(int argc, char** argv){
 	cout << "Top Module Testbench Generation will be for " << moduleName << endl;
 
 	cout << endl;
-	cout << "Project Testbench Generated Successfully. \n[Exiting Now].."<< endl;
+	cout << "Project Testbench Generated Successfully. \nExiting Now..."<< endl;
 	return 0;
 }

@@ -20,11 +20,9 @@ void callError(std::string err){
 }
 
 std::string getModuleName(char *module){
+	std::string databuf;
 	std::ifstream verilogFile;
-	std::string filename;
+	std::string filename, line;
 	filename = module;
-	verilogFile.open(filename.c_str());
-	
-	verilogFile.close();
 	return "dff";
 }

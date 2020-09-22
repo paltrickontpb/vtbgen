@@ -18,7 +18,8 @@ test:
 		echo "Making test directory"; \
 		mkdir test; \
 	fi 
-	cp dff.v ./test/dff.v
+	cp ./verilogtest/dff.v ./test/dff.v
+	cp ./verilogtest/spi_slave.v ./test/spi_slave.v
 	cp ./build/main.o ./test/main.o
 	./test/main.o ./test/dff.v
 
