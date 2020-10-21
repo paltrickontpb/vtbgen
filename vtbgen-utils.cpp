@@ -16,7 +16,7 @@ int moduleCount(char* module){
 void callError(std::string err){
 	std::cout << "Error : " << err << std::endl;
 	std::cout << std::endl;
-	std::cout << "Project Testbench Aborted. \n[Exiting Now].."<< std::endl;
+	std::cout << "Project Testbench Aborted.\n[Exiting Now].."<< std::endl;
 }
 
 std::string getModuleName(char *module){
@@ -24,32 +24,42 @@ std::string getModuleName(char *module){
 	std::ifstream verilogFile;
 	std::string filename, line;
 	filename = module;
-	return "dff";
+	return "dff"; //Needs to be updated
 }
 
-int generate_tb(std::string moduleName){
+int generate_tb(std::string moduleName, std::vector<std::string> inputList, std::vector<std::string>outputList){
 	std::string fileName = moduleName + "_tb.v";
 	std::ofstream tbFile;
 	tbFile.open(fileName, std::ofstream::out | std::ofstream::trunc);
 
 	if (tbFile.is_open()){
-		tbFile << "module "+fileName+"();\n";
-		//Add input reg, output wire logic
-
-		tbFile << moduleName+" UUt (";
+		tbFile << "module "+fileName+"();\n\n";
+		//Input reg, output wire logic
+		for(auto &itr : inputList){
+			tbFile << "\treg "+ itr + ";\n";
+		}
+		for(auto &itr : outputList){
+			tbFile << "\twire "+ itr + ";\n";
+		}
+		tbFile << "\n";
+		tbFile << "\t" + moduleName + " UUT (";
 		//Add .input(input) and .output(output)
-		tbFile << " );\n\n"
+		for(auto &itr : inputList){
+			tbFile << "." + itr + "(" + itr + "),";
+		}
+		for(auto &itr : outputList){
+			tbFile << "." + itr + "(" + itr + "),";
+		}
+		tbFile.seekp(-1, std::ios_base::cur);
+		tbFile << ");\n\n";
 
-		tbFile << "//Uncomment to Add Clock\n";
-    	tbFile << "//always @10 clk=~clk;\n\n";
+		tbFile << "\t//Uncomment Next Line to add clock/continuously inverting signal\n";
+    	tbFile << "\t//always @10 clk=~clk;\n\n";
 		
-		tbFile << "initial begin\n"
-		tbFile << "//Put initial input, output test cases here\n"
-		tbFile << "#10\n"
-		tbFile << "#10\n"
-		tbFile << "#10\n\n"
-		tbFile << "$finish; // End test\n"
-		tbFile << "end\n\n"
+		tbFile << "\tinitial begin\n";
+		tbFile << "\t\t//Set input test cases under this line.\n\n";
+		tbFile << "\t\t$finish; //Don't delete this directive\n";
+		tbFile << "\tend\n\n";
     	    	
     	tbFile << "endmodule\n";
     	tbFile.close();

@@ -30,8 +30,21 @@ int main(int argc, char** argv){
 		moduleName = getModuleName(argv[1]);
 	}
 	cout << "Top Module Testbench Generation will be for " << moduleName << endl;
+	//TODO
+	//add input/output vector of strings
+	//fetch input/output list
+	//int responseCode = generate_tb(moduleName, inputs, outputs);
 
-	cout << endl;
+	// TESTING
+	std::vector<std::string> b;
+	std::vector<std::string> c;
+	b.push_back("input1");
+	b.push_back("input2");
+	c.push_back("output1");
+	c.push_back("output2");
+	int a = generate_tb(moduleName, b, c);
+	cout << a << endl;
+	// END TEST
 	cout << "Project Testbench Generated Successfully. \nExiting Now..."<< endl;
 	return 0;
 }

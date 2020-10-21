@@ -10,6 +10,6 @@
 int moduleCount(char *module);
 void callError(std::string err);
 std::string getModuleName(char *module);
-int generate_tb(std::string moduleName);
+int generate_tb(std::string moduleName, std::vector<std::string> inputList, std::vector<std::string> outputList);
 
 #endif

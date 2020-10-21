@@ -1,1 +1,5 @@
 a.out
+./test
+./build
+dff.v
+dff_tb.v

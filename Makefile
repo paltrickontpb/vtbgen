@@ -1,4 +1,4 @@
-.PHONY: all
+.PHONY: all test
 all: checkbuild
 	g++ *.cpp -o ./build/main.o
 	@echo "Build complete"
