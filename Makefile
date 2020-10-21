@@ -1,6 +1,6 @@
 .PHONY: all test
 all: checkbuild
-	g++ *.cpp -o ./build/main.o
+	g++ *.cpp -o ./build/vtbgen
 	@echo "Build complete"
 
 checkbuild:
@@ -18,10 +18,11 @@ test:
 		echo "Making test directory"; \
 		mkdir test; \
 	fi 
-	cp ./verilogtest/dff.v ./test/dff.v
-	cp ./verilogtest/spi_slave.v ./test/spi_slave.v
-	cp ./build/main.o ./test/main.o
-	./test/main.o ./test/dff.v
+	@cp ./verilogtest/dff.v ./test/dff.v
+	@cp ./verilogtest/spi_slave.v ./test/spi_slave.v
+	@cp ./build/vtbgen ./test/vtbgen
+	./test/vtbgen ./test/dff.v
+	@mv dff_tb.v ./test/dff_tb.v
 
 clean:
 	rm -rf ./build

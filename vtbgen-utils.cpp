@@ -33,7 +33,9 @@ int generate_tb(std::string moduleName, std::vector<std::string> inputList, std:
 	tbFile.open(fileName, std::ofstream::out | std::ofstream::trunc);
 
 	if (tbFile.is_open()){
-		tbFile << "module "+fileName+"();\n\n";
+		tbFile << "module " + fileName;
+		tbFile.seekp(-2, std::ios_base::cur);
+		tbFile << "();\n\n";
 		//Input reg, output wire logic
 		for(auto &itr : inputList){
 			tbFile << "\treg "+ itr + ";\n";

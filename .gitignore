@@ -1,7 +1,4 @@
 a.out
-test
-build
-dff.v
+test/
+build/
 dff_tb.v
-spi_slave.v
-main.o
