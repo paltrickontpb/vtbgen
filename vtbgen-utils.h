@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <regex>
 #include <bits/stdc++.h> 
 #include "vtbgen.h"
 

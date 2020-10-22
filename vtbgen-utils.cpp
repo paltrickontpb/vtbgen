@@ -20,11 +20,25 @@ void callError(std::string err){
 }
 
 std::string getModuleName(char *module){
-	std::string databuf;
+	std::string buffer = "";
 	std::ifstream verilogFile;
-	std::string filename, line;
+	std::string filename, word;
 	filename = module;
-	return "dff"; //Needs to be updated
+	verilogFile.open(filename.c_str()); 
+	int count=0;
+	while (verilogFile >> word){
+		buffer += word;
+		if (word=="endmodule") break;
+		buffer += " ";
+	}
+	//Buffer prepared with module values
+	std::smatch match;
+	std::regex re("(module )([A-Za-z0-9_]+)((.*);)(.*)");
+	if (regex_search(buffer, match, re) == true) { 
+		return match.str(2);
+	} else {
+		return "Error"; 
+	}
 }
 
 int generate_tb(std::string moduleName, std::vector<std::string> inputList, std::vector<std::string>outputList){

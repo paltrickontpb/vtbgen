@@ -26,8 +26,14 @@ int main(int argc, char** argv){
 	} else if(mCount > 1){
 		cout << "Multiple Verilog modules were found. Please enter the top module name : ";
 		cin >> moduleName;
+		cout << endl;
 	} else {
 		moduleName = getModuleName(argv[1]);
+		if (moduleName=="Error") {
+			cout << "Module Name not picked up. Please enter the top module name : ";
+			cin >> moduleName;
+			cout << endl;
+		}
 	}
 	cout << "Top Module Testbench Generation will be for " << moduleName << endl;
 	//TODO

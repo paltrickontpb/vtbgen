@@ -5,5 +5,6 @@
 #include <string>
 #include "vtbgen-utils.h"
 #include <bits/stdc++.h> 
+#include <regex.h>
 
 #endif //_VTBGEN_H_

@@ -4,5 +4,3 @@ output q;
 initial q <= 0;
 always @(posedge clk) q <= d;
 endmodule
-
-module abc();
