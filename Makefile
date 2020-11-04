@@ -22,8 +22,8 @@ test:
 	@cp ./verilogtest/spi_slave.v ./test/spi_slave.v
 	@cp ./build/vtbgen ./test/vtbgen
 	./test/vtbgen ./test/dff.v
-	@mv dff_tb.v ./test/dff_tb.v
-
+	@mv dff_tb.v test/dff_tb.v
+	
 clean:
 	rm -rf ./build
 	rm -rf ./test

@@ -10,7 +10,8 @@
 
 int moduleCount(char *module);
 void callError(std::string err);
-std::string getModuleName(char *module);
-int generate_tb(std::string moduleName, std::vector<std::string> inputList, std::vector<std::string> outputList);
+int getModuleName(char *module, std::string &moduleName, std::string &moduleArgs, std::string &moduleCode);
+int generate_tb(std::string verilogFileName, std::string moduleName, std::vector<std::string> inputList, std::vector<std::string> outputList);
+int createIOList(std::string moduleArgs, std::string moduleCode, std::vector<std::string> &inputList, std::vector<std::string>  &outList);
 
 #endif

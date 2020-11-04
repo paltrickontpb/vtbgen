@@ -2,3 +2,4 @@ a.out
 test/
 build/
 dff_tb.v
+*_tb.
