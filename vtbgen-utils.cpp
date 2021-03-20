@@ -134,7 +134,7 @@ int generate_tb(std::string verilogFileName, std::string moduleName, std::vector
 		tbFile << ");\n\n";
 
 		tbFile << "\t//Uncomment Next Line to add clock/continuously inverting signal\n";
-    	tbFile << "\t//always @10 clk=~clk;\n\n";
+    	tbFile << "\t//always #10 clk=~clk;\n\n";
 		
 		tbFile << "\tinitial begin\n";
 		tbFile << "\t\t//Set input test cases under this line.\n\n";
